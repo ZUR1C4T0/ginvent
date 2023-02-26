@@ -1,3 +1,4 @@
+import '@/styles/normalize.css'
 import '@/styles/globals.css'
 import Layout from '@/pages/_layout'
 import type { AppProps } from 'next/app'
