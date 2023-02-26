@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import Layout from '@/pages/_layout'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { RecoilRoot } from 'recoil'
@@ -13,10 +14,12 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
 
             <div
-                id='app'
                 className='min-h-screen bg-cover bg-center bg-fixed text-white font-sans'
+                id='app'
             >
-                <Component {...pageProps} />
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
             </div>
         </RecoilRoot>
     )
