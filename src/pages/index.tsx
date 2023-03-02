@@ -1,13 +1,10 @@
 import Card from '@/components/Card'
 import FormContainer from '@/components/FormContainer'
 import Input from '@/components/login/Input'
-import FullscreenSpinner from '@/components/spinner/FullscreenSpinner'
-import loadingState from '@/context/loadingState'
 import { validateFields, Fields } from '@/helpers/validateFields'
 import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { FaUserAlt, FaLock } from 'react-icons/fa'
-import { useRecoilState } from 'recoil'
 
 interface loginState {
     email: string
@@ -17,7 +14,6 @@ interface loginState {
 type LoginFieldsToValidate = Record<keyof loginState, Fields[string]>
 
 export default function Index() {
-    const [loading, _] = useRecoilState(loadingState)
     const [login, setLogin] = useState<loginState>({ email: '', password: '' })
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -42,10 +38,8 @@ export default function Index() {
         console.log(validatedFields)
     }
 
-    if (loading) return <FullscreenSpinner />
-
     return (
-        <FormContainer id="login-container">
+        <FormContainer>
             <form
                 className="w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12"
                 onSubmit={handleSubmit}

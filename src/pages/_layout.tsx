@@ -11,11 +11,9 @@ export default function Layout({ children }: PropsWithChildren) {
     useEffect(() => {
         const handleRouterChangeStart = () => {
             setLoading(true)
-            console.log('start: ', loading)
         }
         const handleRouterChangeComplete = () => {
             setLoading(false)
-            console.log(loading)
         }
 
         router.events.on('routeChangeStart', handleRouterChangeStart)
